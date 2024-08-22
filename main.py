@@ -130,9 +130,33 @@ def total():
     # Show the plot
     plt.show()
 
+def top():
+    # Select the 'Country' and 'Spend Ending March 2019' columns
+    trip = df[['Country', 'Trips Ending March 2019']]
+
+    # Sorting by 'Spend Ending March 2019' from highest to lowest and resetting the index
+    sorted = trip.sort_values('Trips Ending March 2019', ascending=False).reset_index(drop=True)
+
+    # Setting the index to start from 1
+    sorted.index = sorted.index + 1
+
+
+
+
+    trip24 = df[['Country', 'Trips Ending March 2024']]
+
+    sorted24 = trip24.sort_values('Trips Ending March 2024', ascending=False).reset_index(drop=True)
+
+    sorted24.index = sorted24.index + 1
+
+
+    # Display the sorted values
+    print(f"The Top 5 Countries most traveled in 2019: \n {sorted[0:5]}\n")
+    print(f"The Top 5 Countries most traveled in 2024: \n {sorted24[0:5]} \n")
+
 
 # mode select loop
-print("Mode 1: Choose Country to see Travel \n Mode 2: Reasons for Travel Graph \n Mode 3: Total Travellers")
+print("Mode 1: Choose Country to see Travel \n Mode 2: Reasons for Travel Graph \n Mode 3: Total Travellers \n Mode 4: Top 5 Traveled Countries in 2019/2024 ")
 mode = input("Choose mode: ")
 while mode != "exit":
     # choose the country function
@@ -154,6 +178,11 @@ while mode != "exit":
         time.sleep(1)
         total()
         print("Saved as 'total.png'")
+        mode = input("Choose mode: ")
+    
+    elif mode == "4":
+        time.sleep(1.5)
+        top()
         mode = input("Choose mode: ")
 
     else:
