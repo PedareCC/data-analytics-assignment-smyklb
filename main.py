@@ -151,7 +151,7 @@ def top():
 
 
     # Display the sorted values
-    print(f"The Top 5 Countries most traveled in 2019: \n {sorted[0:5]}\n")
+    print(f"\nThe Top 5 Countries most traveled in 2019: \n {sorted[0:5]}\n")
     print(f"The Top 5 Countries most traveled in 2024: \n {sorted24[0:5]} \n")
 
 
